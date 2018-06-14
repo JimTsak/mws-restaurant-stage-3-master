@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#3367D6"/>
+  <!-- Normalize.css for better cross-browser consistency -->
+  <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
+  <!-- Main CSS file -->
+  <link rel="stylesheet" href="css/styles.css" type="text/css">
+  <title>Restaurant Info</title>
+</head>
+
+<body>
+
+  <div id = "container">
+    <!-- Beginning header -->
+    <header>
+      <!-- Beginning nav -->
+      <nav>
+        <h1><a href="/">Restaurant Reviews</a></h1>
+      </nav>
+      <!-- Beginning breadcrumb -->
+      <ul aria-label="Breadcrumb" id="breadcrumb" >
+        <li><a href="/" aria-current="page">Home</a></li>
+      </ul>
+      <!-- End breadcrumb -->
+      <!-- End nav -->
+    </header>
+    <!-- End header -->
+
+    <!-- Beginning main -->
+    <main id="maincontent">
+      <!-- Beginning map -->
+      <map class="inside" id="map-container">
+        <div id="map" aria-label="location" role="application"></div>
+      </map>
+      <!-- End map -->
+      <!-- Beginning restaurant -->
+      <section id="restaurant-container">
+          <section id="restaurant-container2">
+            <div id = "restaurant-left2">
+              <h2 id="restaurant-name"></h2>
+            </div>
+            <aside id = "restaurant-right2">
+              <button id="restaurant-favorite-btn" onclick="toggle();"></button>
+              <div hidden id="restaurant-id"></div>
+            </aside>
+          </section>
+          <section id="restaurant-container3">
+              <div id = "restaurant-left3">
+                <img id="restaurant-img">
+                <p id="restaurant-cuisine"></p>
+              </div>
+              <aside id = "restaurant-right3">
+                  <p id="restaurant-address"></p>
+                  <table id="restaurant-hours"></table>
+              </aside>
+
+          </section>
+      </section>
+      <!-- end restaurant -->
+
+      <!-- Beginning review form -->
+      <section id="review-form-container">
+        <h3>Your review matters</h3>
+        <form id="review-form-container2" action="javascript:fetchPOSTReview()">
+          <section id="review-form-left">
+          <div id="review-form-name">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div id="review-form-rating">
+            <label for="rating">Rating:</label>
+            <!-- <input type="number" id="rating" name="rating" required> -->
+            <select id="rating" name="rating" required>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+        </section>
+        <p>
+            <section id="review-form-right">
+          <div id="review-form-commnents">
+            <label for="comments">Message:</label>
+            <textarea id="comments" name="comments" rows="4" cols="100" required></textarea>
+          </div>
+          <p>
+          <div class="button">
+            <button type="submit">Send your review</button>
+          </div>
+        </section>
+        </form>
+      </section>
+      <!-- End review form -->
+
+      <!-- Beginning reviews -->
+      <section id="reviews-container">
+        <ul id="reviews-list"></ul>
+      </section>
+      <!-- End reviews -->
+    </main>
+    <!-- End main -->
+
+    <!-- Beginning footer -->
+    <footer id="footer">
+      Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
+    </footer>
+    <!-- End footer -->
+
+  </div>
+
+  <!-- Beginning scripts -->
+  <!-- Database helpers -->
+  <script type="application/javascript" src="node_modules/idb/lib/idb.js"></script>
+  <script type="text/javascript" src="js/dbhelper.js"></script>
+  <!-- Main javascript file -->
+  <script type="text/javascript" src="js/restaurant_info.js"></script>
+  <script type="text/javascript" src="js/postReview.js"></script>
+  <script type="text/javascript" src="js/putFavorite.js"></script>
+  <!-- Google Maps -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYbl9jpEpe2TcykStL3hGNhClqVplHoeI&libraries=places&callback=initMap"></script>
+  <!-- End scripts -->
+
+</body>
+</html>
